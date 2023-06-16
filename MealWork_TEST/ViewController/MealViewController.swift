@@ -28,22 +28,22 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
     
     let toDoTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "ДОДАТИ ЇЖУ"
+        label.text = Resourses.Text.addEatLabel
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = #colorLiteral(red: 0.9765065312, green: 0.2900038362, blue: 0.2217293382, alpha: 1)
+        label.textColor = Resourses.redColor
         return label
     }()
     
     let mainTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Сніданок"
+        label.text = Resourses.Text.breakfastLabel
         label.font = .boldSystemFont(ofSize: 22)
         return label
     }()
     
     let workoutButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = #colorLiteral(red: 0.1866114736, green: 0.4170508981, blue: 0.9876943231, alpha: 1)
+        button.backgroundColor = Resourses.bluButonColor
         button.tintColor = .white
         button.setImage(UIImage(systemName: "arrow.forward"), for: .normal)
         button.layer.cornerRadius = 25
@@ -53,7 +53,7 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
     let searchProducts: UISearchTextField = {
         let search = UISearchTextField()
         search.placeholder = "Пошук"
-        search.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        search.backgroundColor = Resourses.liteGray
         search.font = UIFont.systemFont(ofSize: 15)
         return search
     }()
@@ -63,9 +63,9 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
     func setupSegmentedItems(item: [String]){
         segmentetMenuItem = UISegmentedControl(items: item)
 
-        segmentetMenuItem.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        segmentetMenuItem.backgroundColor = Resourses.liteGray
         segmentetMenuItem.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        segmentetMenuItem.selectedSegmentTintColor = #colorLiteral(red: 0.9765065312, green: 0.2900038362, blue: 0.2217293382, alpha: 1)
+        segmentetMenuItem.selectedSegmentTintColor = Resourses.redColor
         segmentetMenuItem.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentetMenuItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
         segmentetMenuItem.addTarget(self, action: #selector(segmentedAction), for: .valueChanged)
@@ -77,10 +77,10 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
         tableView.dataSource = self
         tableView.delegate = self
         searchProducts.delegate = self
-        tableView.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        tableView.backgroundColor = Resourses.liteGray
         setupSegmentedItems(item: modelMeal.menuItems)
         
-        view.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        view.backgroundColor = Resourses.liteGray
         view.addSubview(backgrounView)
         backgrounView.addSubview(toDoTitleLabel)
         backgrounView.addSubview(mainTitleLabel)
@@ -89,8 +89,8 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
         backgrounView.addSubview(segmentetMenuItem)
         backgrounView.backgroundColor = .white
         view.addSubview(tableView)
-        addNavBarButton(at: .left, with: "multiply")
-        addNavBarButton(at: .right, with: "ellipsis")
+        addNavBarButton(at: .left, with: Resourses.Images.multiply)
+        addNavBarButton(at: .right, with: Resourses.Images.ellipsis)
     }
     override func configureAppearance() {
                 segmentetMenuItem.selectedSegmentIndex = 0
@@ -184,10 +184,9 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let titleForProduct = ["Останні продукти", "Інші опції"]
         
         let customHeader = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
-            customHeader.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+            customHeader.backgroundColor = Resourses.liteGray
         
         NSLayoutConstraint.activate([
             customHeader.heightAnchor.constraint(equalToConstant: 50)
@@ -195,13 +194,13 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
         
         let headerLabel: UILabel = {
             let label = UILabel()
-            label.text = titleForProduct[section]
+            label.text = Resourses.titleForProduct[section]
             label.font = .boldSystemFont(ofSize: 18)
             return label
         }()
         customHeader.addSubview(headerLabel)
         if moiStravu {
-            headerLabel.text = "Мої страви"
+            headerLabel.text = Resourses.titleForProduct[2]
         }
         
         headerLabel.snp.makeConstraints { make in
@@ -246,8 +245,8 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
                 cell.dateLableActive()
                 cell.arrowButton.setImage(nil, for: .normal)
                 cell.whenFindeLabel.text = "Вчора"
-                cell.colorImageView.backgroundColor = #colorLiteral(red: 0.9638202786, green: 0.9687923789, blue: 0.9816132188, alpha: 1)
-                cell.iconeImageView.tintColor = #colorLiteral(red: 0.6033161283, green: 0.6282605529, blue: 0.6962991357, alpha: 1)
+                cell.colorImageView.backgroundColor = Resourses.liteGray
+                cell.iconeImageView.tintColor = Resourses.gray
             } else {
                 cell.iconeImageView.image = UIImage(named: "fork&spoon")
                 cell.nameTitleLabel.text = "Банан"
@@ -255,8 +254,8 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
                 cell.dateLableActive()
                 cell.arrowButton.setImage(nil, for: .normal)
                 cell.whenFindeLabel.text = "Вчора"
-                cell.colorImageView.backgroundColor = #colorLiteral(red: 0.9638202786, green: 0.9687923789, blue: 0.9816132188, alpha: 1)
-                cell.iconeImageView.tintColor = #colorLiteral(red: 0.6033161283, green: 0.6282605529, blue: 0.6962991357, alpha: 1)
+                cell.colorImageView.backgroundColor = Resourses.liteGray
+                cell.iconeImageView.tintColor = Resourses.gray
             }
         }
             if indexPath.section == 1 {
@@ -268,8 +267,8 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
                 cell.whenFindeLabel.text = nil
                 cell.arrowButtonActive()
                 cell.arrowButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-                cell.colorImageView.backgroundColor = #colorLiteral(red: 0.9638202786, green: 0.9687923789, blue: 0.9816132188, alpha: 1)
-                cell.iconeImageView.tintColor = #colorLiteral(red: 0.6033161283, green: 0.6282605529, blue: 0.6962991357, alpha: 1)
+                cell.colorImageView.backgroundColor = Resourses.liteGray
+                cell.iconeImageView.tintColor = Resourses.gray
             } else {
 //                cell.confirureViewCell(imageName: "scan", title: "Сканувати", info: nil, inOrBu: .button)
                 cell.iconeImageView.image = UIImage(named: "scan")
@@ -278,33 +277,31 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
                 cell.whenFindeLabel.text = nil
                 cell.arrowButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
                 cell.arrowButtonActive()
-                cell.colorImageView.backgroundColor = #colorLiteral(red: 0.9638202786, green: 0.9687923789, blue: 0.9816132188, alpha: 1)
-                cell.iconeImageView.tintColor = #colorLiteral(red: 0.6033161283, green: 0.6282605529, blue: 0.6962991357, alpha: 1)
+                cell.colorImageView.backgroundColor = Resourses.liteGray
+                cell.iconeImageView.tintColor = Resourses.gray
             }
 
         }
     }
         if obraneTapped {
-//            cell.confirureViewCell(imageName: "fork&spoon", title: "Вівсянка", info: "250г, 360 ккал", inOrBu: .info)
             cell.iconeImageView.image = UIImage(named: "fork&spoon")
             cell.nameTitleLabel.text = "Вівсянка"
             cell.infoTitleLbel.text = "250г, 360 ккал"
             cell.dateLableActive()
             cell.arrowButton.setImage(nil, for: .normal)
             cell.whenFindeLabel.text = "Вчора"
-            cell.colorImageView.backgroundColor = #colorLiteral(red: 0.9638202786, green: 0.9687923789, blue: 0.9816132188, alpha: 1)
-            cell.iconeImageView.tintColor = #colorLiteral(red: 0.6033161283, green: 0.6282605529, blue: 0.6962991357, alpha: 1)
+            cell.colorImageView.backgroundColor = Resourses.liteGray
+            cell.iconeImageView.tintColor = Resourses.gray
             
         }
         if moiStravu {
-//            cell.confirureViewCell(imageName: "fork&spoon", title: "Сніданок - 240 ккал", info: "Вівсянка, Банан, Молоко", inOrBu: .info)
             cell.iconeImageView.image = UIImage(named: "tea")
             cell.nameTitleLabel.text = "Сніданок - 240 ккал"
             cell.infoTitleLbel.text = "Вівсянка, Банан, Молоко"
             cell.dateLableActive()
             cell.arrowButton.setImage(nil, for: .normal)
             cell.whenFindeLabel.text = "Вчора"
-            cell.colorImageView.backgroundColor = #colorLiteral(red: 0.1866114736, green: 0.4170508981, blue: 0.9876943231, alpha: 1)
+            cell.colorImageView.backgroundColor = Resourses.bluButonColor
             cell.iconeImageView.tintColor = .white
             
         }
@@ -334,10 +331,9 @@ class MealViewController: BaseController,UITableViewDelegate, UITableViewDataSou
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        if let text = searchBar.text {
+        if searchBar.text != nil {
             arrayOfProduct = []
             tableView.reloadData()
-//            loadResults(query: text)
         }
     }
 

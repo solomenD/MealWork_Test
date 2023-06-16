@@ -12,8 +12,8 @@ class ViewController: BaseController {
     
     var startButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.1866114736, green: 0.4170508981, blue: 0.9876943231, alpha: 1)
-        button.setTitle("Старт", for: .normal)
+        button.backgroundColor = Resourses.bluButonColor
+        button.setTitle(Resourses.Text.startLable, for: .normal)
         button.tintColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.cornerRadius = 15

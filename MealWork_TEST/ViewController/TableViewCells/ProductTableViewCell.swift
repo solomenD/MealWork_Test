@@ -22,14 +22,14 @@ class ProductTableViewCell: UITableViewCell {
     }()
     var colorImageView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9638202786, green: 0.9687923789, blue: 0.9816132188, alpha: 1)
+        view.backgroundColor = Resourses.liteGray
         view.layer.cornerRadius = 18
         return view
     }()
     
     var iconeImageView: UIImageView = {
         let image = UIImageView()
-        image.tintColor = #colorLiteral(red: 0.6033161283, green: 0.6282605529, blue: 0.6962991357, alpha: 1)
+        image.tintColor = Resourses.gray
         return image
     }()
     var nameTitleLabel: UILabel = {
@@ -46,7 +46,7 @@ class ProductTableViewCell: UITableViewCell {
     
     var arrowButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        button.setImage(UIImage(systemName: Resourses.Images.chevronRight), for: .normal)
         button.tintColor = .black
         return button
     }()

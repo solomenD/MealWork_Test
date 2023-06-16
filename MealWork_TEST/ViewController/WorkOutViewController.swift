@@ -18,30 +18,30 @@ class WorkOutViewController: BaseController, UITableViewDataSource, UITableViewD
     
     let toDoTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "День 1 "
+        label.text = Resourses.Text.firstDayLabel
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = #colorLiteral(red: 0.9765065312, green: 0.2900038362, blue: 0.2217293382, alpha: 1)
+        label.textColor = Resourses.redColor
         return label
     }()
     
     let mainTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Спина і біцепс"
+        label.text = Resourses.Text.execiseLabel
         label.font = .boldSystemFont(ofSize: 22)
         return label
     }()
     
     let infoQuantutyWorkout: UILabel = {
         let label = UILabel()
-        label.text = "12 вправ ·24 сета ·Тренування 60-80хв"
+        label.text = Resourses.Text.countOfRepsLabel
         label.font = UIFont.systemFont(ofSize: 13)
-        label.textColor = #colorLiteral(red: 0.5465188622, green: 0.5815129876, blue: 0.6493373513, alpha: 1)
+        label.textColor = Resourses.gray
         return label
     }()
     
     let infoExerciseyWorkout: UILabel = {
         let label = UILabel()
-        label.text = "При правильному виконанні вона дає нам максимальне навантажування по всій довжині м'яза - повну розтяжку і потужне скорочення"
+        label.text = Resourses.Text.infiExeciseLabel
         label.font = UIFont.systemFont(ofSize: 13)
         label.numberOfLines = 0
         label.textColor = .black
@@ -56,8 +56,8 @@ class WorkOutViewController: BaseController, UITableViewDataSource, UITableViewD
     
     let startedExerciseButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = #colorLiteral(red: 0.9765065312, green: 0.2900038362, blue: 0.2217293382, alpha: 1)
-        button.setTitle("Почати тренування", for: .normal)
+        button.backgroundColor = Resourses.redColor
+        button.setTitle(Resourses.Text.startExrciseLabel, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.layer.cornerRadius = 25
         return button
@@ -78,7 +78,7 @@ class WorkOutViewController: BaseController, UITableViewDataSource, UITableViewD
         backgrounView.addSubview(infoExerciseyWorkout)
         view.addSubview(tableView)
         view.addSubview(startedExerciseButton)
-        addNavBarButton(at: .left, with: "multiply")
+        addNavBarButton(at: .left, with: Resourses.Images.multiply)
     }
     
     override func navBarLeftButtontHandler() {

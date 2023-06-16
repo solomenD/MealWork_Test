@@ -19,20 +19,20 @@ class WorkoutTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     }()
     var iconeImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "workoutMan")
+        image.image = UIImage(named: Resourses.Images.workoutMan)
         image.layer.cornerRadius = 10
         image.layer.masksToBounds = true
         return image
     }()
     var nameTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Станова тяга"
+        label.text = Resourses.Text.deadlift
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
     var infoTitleLbel: UILabel = {
         let label = UILabel()
-        label.text = "15 повторень х 3 підходи х --кг"
+        label.text = Resourses.Text.countOfRepsApproaches
         label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .black
         return label
@@ -40,7 +40,7 @@ class WorkoutTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     
     var dotButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        button.setImage(UIImage(systemName: Resourses.Images.ellipsis), for: .normal)
         button.tintColor = .black
         return button
     }()
@@ -55,7 +55,7 @@ class WorkoutTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     
     var isActiveButton = true
     
-    @objc func dotButtonTapped(completion: ()->()) {
+    @objc func dotButtonTapped() {
 //        if isActiveButton == false {
 //            isActiveButton = true
 //        } else if isActiveButton == true{

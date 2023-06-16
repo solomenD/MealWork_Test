@@ -36,7 +36,7 @@ class ApproachTableViewCell: UITableViewCell {
         field.textColor = .gray
         field.layer.cornerRadius = 10
         field.font = UIFont.systemFont(ofSize: 12)
-        field.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        field.backgroundColor = Resourses.liteGray
         field.textAlignment = .center
         return field
     }()
@@ -45,7 +45,7 @@ class ApproachTableViewCell: UITableViewCell {
         field.text = "15"
         field.layer.cornerRadius = 7
         field.font = UIFont.systemFont(ofSize: 12)
-        field.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        field.backgroundColor = Resourses.liteGray
         field.textAlignment = .center
         return field
     }()
@@ -54,12 +54,12 @@ class ApproachTableViewCell: UITableViewCell {
         let buttun = UIButton()
         buttun.setImage(UIImage(systemName: "checkmark"), for: .normal)
         buttun.tintColor = .black
-        buttun.backgroundColor = #colorLiteral(red: 0.9590075612, green: 0.9689560533, blue: 0.9816882014, alpha: 1)
+        buttun.backgroundColor = Resourses.liteGray
         buttun.layer.cornerRadius = 7
         return buttun
     }()
     @objc func acseptButtonTapped() {
-        exesiseViewCell.backgroundColor = #colorLiteral(red: 0.9438195825, green: 0.9937619567, blue: 0.9454399943, alpha: 1)
+        exesiseViewCell.backgroundColor = Resourses.liteGray
         acseptButton.backgroundColor = .green
     }
     
